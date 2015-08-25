@@ -13,19 +13,14 @@ try:
 	in2 = 19
 	in3 = 26
 
-	print('step2')
 	GPIO.setmode(GPIO.BCM)
-	print('step25')
 	GPIO.setwarnings(False)
-	print('step26')
 	GPIO.setup(ac, GPIO.OUT)
 	GPIO.setup(tamp, GPIO.OUT)
 	GPIO.setup(bat, GPIO.OUT)
-	print('step27')
 	GPIO.setup(in1, GPIO.OUT)
 	GPIO.setup(in2, GPIO.OUT)
 	GPIO.setup(in3, GPIO.OUT)
-	print ('step3')    
 	fAc= "AcFailuer"
 	fTamp= "Tamper"
 	fBat= "BatteryFailuer"
@@ -45,12 +40,12 @@ try:
 			data = conn.recv(1024)
 			if not data: break
 			
-			print (data)
+			print ('data from SC is : ',data)
 			if data == fTamp:
 				GPIO.output(tamp, 1)
 				conn.sendall(data + "-done")
 				print ('tamper is on')
-			print (fTamp)	
+				
 			if data == (fTamp + "off"):
 				GPIO.output(tamp, 0)
 				conn.sendall(data + "-off")
