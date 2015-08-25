@@ -32,7 +32,8 @@ try:
 	while True:
 
 		print('connction wait ....')
-		s.listen(1)
+		s.listen(1)ls
+		
 		conn, addr = s.accept()
 	
 		print('Connected by', addr)
@@ -46,7 +47,7 @@ try:
 				conn.sendall(data + "-done")
 				print ('tamper is on')
 				
-			if data == (fTamp + "off"):
+			if data == (fTamp + "-off"):
 				GPIO.output(tamp, 0)
 				conn.sendall(data + "-off")
 				print ('tamper is off' )
@@ -56,7 +57,7 @@ try:
 				conn.sendall(data + "-done")
 				print ('ac is off' )
 
-			if data == fAc + "off":
+			if data == fAc + "-off":
 				GPIO.output(ac, 0)
 				conn.sendall(data + "-off")
 				print ('AC is on' )
@@ -66,7 +67,7 @@ try:
 				conn.sendall(data + "-done")
 				print ('Battery is off' )
 
-			if data == fBat + "off":
+			if data == fBat + "-off":
 				GPIO.output(bat, 0)
 				conn.sendall(data + "-off")
 				print ('Batterry is on' /n)
