@@ -32,7 +32,7 @@ try:
 	while True:
 
 		print('connction wait ....')
-		s.listen(1)ls
+		s.listen(1)
 		
 		conn, addr = s.accept()
 	
