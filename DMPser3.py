@@ -82,7 +82,7 @@ try:
 				print('alarm')
 				conn.sendall(data + "-done")
 				print ('Inputs are in alarm')
-				time.sleep(10)
+				time.sleep(20)
 				GPIO.output(in1, 0)
 				GPIO.output(in2, 0)
 				GPIO.output(in3, 0)
